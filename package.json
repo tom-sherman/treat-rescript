@@ -5,7 +5,7 @@
     "clean:reason": "bsb -clean-world",
     "build:reason": "bsb -make-world",
     "build:webpack": "NODE_ENV=production webpack",
-    "start:reason": "bsb -make-world -w",
+    "start:rescript": "bsb -make-world -w",
     "start:webpack": "webpack serve"
   },
   "keywords": [

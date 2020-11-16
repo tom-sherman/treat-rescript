@@ -3,14 +3,11 @@
 @bs.module("treat") external style: TreatStyle.t => string = "style"
 @bs.module("treat") external themedStyle: ('theme => TreatStyle.t) => string = "style"
 
-type treatFns<'theme> = {
-  theme: 'theme,
-  style: TreatStyle.t => string,
-  themedStyle: ('theme => TreatStyle.t) => string,
+module type Theme = {
+  type t
 }
 
-let makeTreat = theme => {
-  theme: theme,
-  style: style,
-  themedStyle: themedStyle,
+module MakeTreat = (Theme: Theme) => {
+  let themedStyle = (cb: Theme.t => TreatStyle.t) => themedStyle(cb)
+  let style = style
 }

@@ -41,20 +41,16 @@ let button = style(
 )
 ```
 
-Every time you call the `style` function, some static CSS will be added to your bundle and it will return a generated class name. Treat is themed, and this is possible in ReScript too. Notice the `open MyTreat` line? In there we have created our own treat factory and injected our theme inside
+Every time you call the `style` function, some static CSS will be added to your bundle and it will return a generated class name. Treat is themed, and this is possible in ReScript too. Notice the `open MyTreat.Treat` line? In there we have created our own treat module by passing `MakeTreat` our theme.
 
 ```rescript
-type theme = {primaryColor: string}
+// MyTreat.res
 
-let greenTheme = Treat.createTheme({
-  primaryColor: "green",
-})
-let blueTheme = Treat.createTheme({
-  primaryColor: "blue",
-})
+module MyTheme = {
+  type t = {small: string}
+}
 
-// Pass in an example theme value to `makeTreat` properly type your treat instance
-let {Treat.style: style, themedStyle} = Treat.makeTreat(greenTheme)
+module Treat = Treat.MakeTreat(MyTheme)
 ```
 
 Now, in your React code, you can use the generated class name to apply the styles.

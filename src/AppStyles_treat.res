@@ -1,5 +1,5 @@
 open TreatStyle
-open MyTreat
+open MyTreat.Treat
 
 let button = style(
   make(
@@ -13,4 +13,4 @@ let button = style(
   ),
 )
 
-let buttonColor = themedStyle((theme: MyTreat.theme) => make(~color=theme.primaryColor, ()))
+let buttonColor = themedStyle(theme => make(~fontSize=theme.small, ()))

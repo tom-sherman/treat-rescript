@@ -1,6 +1,11 @@
+open Treat
+
 module Button = {
   @react.component
-  let make = (~label) => <button className=AppStyles_treat.button> {React.string(label)} </button>
+  let make = (~label) =>
+    <button className={cxs([AppStyles_treat.buttonColor["red"], AppStyles_treat.button])}>
+      {React.string(label)}
+    </button>
 }
 
 @react.component

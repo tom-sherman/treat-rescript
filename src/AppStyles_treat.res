@@ -13,4 +13,7 @@ let button = style(
   ),
 )
 
-let buttonColor = themedStyle(theme => make(~fontSize=theme.small, ()))
+let buttonColor = styleMap({
+  "blue": make(~color="blue", ()),
+  "red": make(~color="red", ()),
+})

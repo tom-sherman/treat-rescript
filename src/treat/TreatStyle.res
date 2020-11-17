@@ -1,4 +1,6 @@
-type t
+// TODO: This allows passing t to places that accept strings, but in actuality t is a JS object.
+// We do this so that it's possible to have `styleMap` have strictly typed keys by essentially binding it to an identity function.
+type t = string
 
 @bs.obj
 external make: (
